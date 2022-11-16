@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五倍紅寶石</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    .xruby{
+        width: 1440px;   
+    }
+    a{
+        text-decoration: none;
+    }
+    .header{
+        width: 1440px;
+        display: flex;
+        background-color: white;
+        list-style-type: none;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 10;
+    }
+    .header div{
+        padding: 10px 10px;
+        font-size: 19px;
+        font-weight: bold;
+    }
+    .header div a{
+        color: black;
+    }
+    .header-header{
+        padding-left: 20px;
+    }
+    .header-pic{
+        width: 40px;
+    }
+    .header-list{
+        display: flex;
+        list-style-type: none;
+        font-size: 18px;
+        -right: 20px;
+    }
+    .header-list a{
+        padding: 20px 18px;
+        display: block;
+        color: black;
+    }
+    .header ul li::after{
+        content: '';
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: red;
+        transition: .4s;   
+        transform: scale(0);    
+        text-align: end;
+    }
+    .header ul li:hover::after{
+        transform: scale(1);
+    }
+    .header ul li a:hover{
+        color: red;
+    }
+   
+    .pic-area{
+        width: 1440px;
+        background-color: rgba(204, 204, 204, 0.171);
+        padding: 92px 25px 40px;
+    }
+    .pic-area img{
+        width: 1390px;
+        border-radius: 40px;
+        box-sizing: border-box;
+    }
+    .area1{
+        text-align: center;
+        width: 1392px;
+        font-size: 20px;
+        margin-bottom: 200px;
+        padding: 0 24px;
+    }
+    .area1-title{
+        display: block;
+        line-height: 3;
+    }
+
+    .area1-list{
+        width: 100%;
+        display: flex;
+    }
+    .area1-card{
+        width: 416;
+        padding: 0 20px;
+    }
+    .area1-list h3{
+        font-size: 18px;
+        padding-top: 16px;
+        padding-bottom: 8px;
+    }
+    .area1-list p{
+        font-size: 16px;
+    }
+    .area1-list img{
+        width: 50%;
+    }
+
+
+    .area2{
+        width: 1392px;
+        background-color: rgb(249, 250, 251);
+        /* margin: 0 80px; */
+        padding: 40px 24px 80px;
+    }
+
+    .area2 header{
+        width: 66.666666%;
+        margin: auto;
+        margin-bottom: 30px;
+        
+    }
+    .area2 header p{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    .area2 header h2{
+        font-size: 30px;
+    }
+
+    .area2 header h2::after{
+        content:" ";
+        display:block; 
+        width: 0;
+        height: 2px;
+        background-color: #f00;
+        margin-top: 4px;
+    }
+    .area2 header h2:after{
+        width: 48px;
+    }
+    .teacher-list{
+        width: 13px;
+        margin: 0 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+    .teacher{
+        width: 600px;
+        padding: 40px ;
+        margin: 40 24 24px;
+        border-radius: 10px;
+        background-color: white;
+        
+    }
+    .teacher-name{
+        display: flex;
+        padding: 0 0 12px;
+        border-bottom: 1px solid rgb(229, 231, 235);
+        margin-bottom: 30px;
+    }
+
+    .teacher-name img{
+        width: 160px;
+        border-radius: 50%;
+    }
+    .teacher-data{
+        margin-left: 20px;
+        font-size: 16px;
+        text-align: left;
+        width: 170px;
+    }
+    .teacher-social img{
+        width: 20px;
+        padding: 6px;
+    }
+    .teacher-data p{
+        padding-bottom: 8px;
+        margin-bottom: 24px;
+    }
+    
+    .teacher-p{
+        margin-bottom: 32px;
+        line-height: 1.5; 
+    }
+    .teacher-p p{
+        margin-bottom: 6px;
+    }
+    .teacher-p p a{
+        color: red;
+    }
+    .teacher-class{
+        margin-bottom: 16px;
+    }
+
+    .teacher-link{
+        display: flex;
+    }
+    
+    .teacher-btn{
+        border: 1px solid red;
+        margin-bottom: 16px;
+        margin-right: 16px;
+        padding: 4px 10px;
+        color: red;
+        border-radius: 3px;
+    }
+    
+
+    .area3 {
+        width: 1440px;
+        background-color: rgb(249, 250, 251);
+        padding-bottom: 250px;
+    }
+    .area3 h2{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+        /* margin-left: 30px; */
+    }
+    .report{ 
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+        margin-bottom: 100px;
+        padding: 30px;
+    }
+    .report-title{
+        font-size: 23px;
+        font-weight: bolder;
+    }
+    .report-title a{
+        color: rgb(59, 65, 79);
+    }
+    .report-title a:hover{
+        color: red;
+    }
+    .report-title p{
+        color: rgb(110, 114, 126);
+        font-size: 16px;
+    }
+    .report-more{
+        width: 80px;
+        font-size: 20px;
+        padding: 12px 30px;
+        margin: auto;
+        border: 1px solid red;
+        color: white;
+        border-radius: 3px;
+        background-color: red;
+    }
+    .report-more a{
+        color: white;
+    }
+    .area4{
+        width: 1440px;
+        background-color: rgb(42, 48, 61);
+        margin-bottom: 250px;
+    }
+    .area4-header{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        
+    }
+
+    .area4-title{
+        margin-top: 0%;
+        width: 500px;
+        color: white;
+        margin-left: 145px;
+    }
+    .area4-title h2{
+        margin-bottom: 40px;
+        font-size: 32px;
+        font-weight: bolder;
+    }
+
+    .area4-title h4 {
+        font-size: 20px;
+        color: rgb(161, 166, 176);
+        line-height: 1.5;
+    }
+
+    .area4-subtitle{
+        color: white;
+        width: 500px;
+        margin: auto;
+        background-color: rgb(234, 56, 70);
+        margin-right: 200px;
+    }
+
+    .area4-subtitle h1{
+        margin: 20px;
+    }
+    .area4-subtitle h4{
+        margin: 20px;
+        line-height: 1.5;
+    }
+    .area4-subtitle p{
+        margin: 20px;
+        color: white;
+    }
+
+    .area4-lesson{
+        width: 1440px;
+    }
+    
+    .area4-list{
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 80px;
+    }
+    .area4-card{
+        width: 440px;
+        margin: auto;
+        background-color: white;
+        border-radius: 5px;
+        position: relative;
+        box-shadow: 0px 0px 0px red;
+        top: 0;
+        transition: .1s;
+    }
+    .area4-card:hover{
+        top: -10px;
+        box-shadow: 0px 10px 0px red;
+        
+    }
+    .area4-card img{
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .area4-card-list{
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        color: rgb(170, 175, 184);
+        border-top: 1px solid rgb(233, 234, 236);
+        margin: 10px;
+    }
+    .area4-month{
+        padding: 10px;
+        margin-left: 10px;
+        font-size: 14px;
+        color: rgb(129, 133, 144);
+    }
+    .area4-lesson-header{
+        color: white;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        font-weight: bolder;
+    }
+    .process-class{
+        color: rgb(233, 131, 127);
+    }
+    .area4-else{
+        color: white;
+        width: 100px;
+        background-color: red;
+        margin: auto;
+        font-size: 20px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 12px 30px;
+    }
+
+    .area5{
+        width: 1440px;
+        background-color: rgb(249, 250, 251);
+        margin-bottom: 330px;
+    }
+    .area5-header{
+        display: block;
+        width: 800px;
+        margin-left: 150px;
+        padding: 20px;
+    }
+    .area5-header h2{
+        margin-bottom: 36px;
+    }
+    .area5-list{
+        width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+
+    }
+    .area5-card{
+        width: 530px;
+        margin-left: 45px ;
+        position: relative;
+        box-shadow: 0px 0px 0px red;
+        top: 0;
+        transition: .1s;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border: 1px solid rgb(244, 245, 247);
+    }
+
+    .area5-card:hover{
+        top: -10px;
+        box-shadow: 0px 10px 0px red;
+    }
+    .area5-card a img{
+        width: 100%;
+    }
+    .area5-camp{
+        padding: 20px;
+    }
+    .area5-class{
+        font-size: 20px;
+        color: rgb(59, 65, 79);
+        padding-bottom: 12px;
+        border-bottom: 1px solid black;
+    }
+
+    .area5-txt .area5 p{
+        color: #000;
+        line-height: 1.5;
+        font-size: 16px;
+        margin-left: -5px;
+    }
+
+    .area5-p{
+        color: #000;
+        padding: 16px 0;
+    }
+    .forward-class{
+        color: red;
+        font-size: 16px;
+    }
+    .forward-class:hover{
+        border-bottom: red;
+        text-decoration: underline;
+    }
+
+    .area6{
+        width: 1440px;
+        margin-bottom: 300px;
+    }
+   .area6-header{
+    padding-bottom: 40px;
+    font-size: 20px;
+    text-align: center;
+   }
+   .area6-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: hidden;
+   }
+   .area6-card{
+    width: 278px;
+    margin: 0 16px;
+    padding: 24px;
+    border: 1px solid rgb(241, 243, 244);
+    border-radius: 10px;
+   }
+   .area6-card-aside{
+    width: 278px;
+    margin: 0 16px;
+    padding: 24px;
+    border: 1px solid rgb(241, 243, 244);
+    margin-left: -164px;
+    border-radius: 10px;
+   }
+   .area6-card-bside{
+    width: 278px;
+    margin: 0 16px;
+    padding: 24px;
+    border: 1px solid rgb(241, 243, 244);
+    margin-right: -164px;
+    border-radius: 10px;
+   }
+   .area6-txt{
+    margin-bottom: 24px;
+   }
+   .area6-card-name{
+    display: flex;
+    padding-top: 24px;
+    align-items: center;
+   }
+   .area6-card-name img{
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 20px;
+   }
+
+   .area7{
+    width: 1392px;
+    padding: 0 24px;
+    margin-bottom: 260px;
+   }
+
+   .area7-header{
+    text-align: center;
+    font-size: 20px;
+   }
+
+   .area7-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+   }
+
+   .area7-card{
+    width: 427px;
+    padding: 15px;
+   }
+
+   .area7-card img{
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+   }
+   .area7-img2{
+    height: 274px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+   .area7-card h3{
+    padding-bottom: 12px;
+    font-size: 24px;
+   }
+   .area7-card p{
+    font-size: 12px;
+    color: rgb(168, 173, 182);
+   }
+   .area7-footer{
+    width: 1392px;
+   }
+   .area7-footer p{
+        color: white;
+        width: 80px;
+        background-color: red;
+        margin: auto;
+        font-size: 18px;
+        border-radius: 3px;
+        padding: 12px 30px;
+   }
+   
+   .footer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1392px;
+    padding: 64px 24px 12px;
+    background-color: rgb(42, 48, 61);
+   }
+   .footer li{
+    list-style-type: none;
+   }
+
+   .footer-header{
+    display: block;
+    width: 556px;
+   }
+   .footer-header-title {
+    margin-bottom: 16px;
+   }
+   .footer-header-body h2{
+    font-size: 14px;
+    padding: 4px 0;
+   }
+   .footer-header-body a{
+    color: white;
+   }
+
+   .footer-body{
+    display: flex;
+    flex-wrap: wrap;
+    width: 836px;
+   }
+
+   .footer-card{
+    width: 278px;
+    padding-bottom: 64px;
+   }
+   .footer-card h2{
+    padding-bottom: 12px;
+    color: white;
+    font-size: 16px;
+   }
+   .footer-card li a{
+    color: white;
+    padding: 4px 0;
+    font-size: 14px;
+   }
+
+   .area8-link{
+    width: 1440px;
+    background-color: rgb(42, 48, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+   }
+
+   .area8-link a img{
+    margin: auto;
+    width: 37px;
+    padding: 12px 20px;
+   }
+
+   .footer-footer{
+    background-color: rgb(25, 29, 43);
+    color: rgb(160, 165, 176);
+    padding: 16px 8px;
+    text-align: center;
+    font-size: 14px;
+   }
+
+   [class*="col-"]{
+            /* padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 15px; */
+            box-sizing: border-box;
+        }
+        .col-1{width: 8.333333%;}
+        .col-2{width: 16.666666%;}
+        .col-3{width: 25%;}
+        .col-4{width: 33.333333%;}
+        .col-5{width: 41.666666%;}
+        .col-6{width: 50%;}
+        .col-7{width: 58.333333%;}
+        .col-8{width: 66.666666%;}
+        .col-9{width: 75%;}
+        .col-10{width: 83.333333%;}
+        .col-11{width: 91.666666%;}
+        .col-12{width: 100%;}
+
+        @media screen and (min-width:768px) {
+        .col-mi-1{width: 8.333333%;}
+        .col-mi-2{width: 16.666666%;}
+        .col-mi-3{width: 25%;}
+        .col-mi-4{width: 33.333333%;}
+        .col-mi-5{width: 41.666666%;}
+        .col-mi-6{width: 50%;}
+        .col-mi-7{width: 58.333333%;}
+        .col-mi-8{width: 66.666666%;}
+        .col-mi-9{width: 75%;}
+        .col-mi-10{width: 83.333333%;}
+        .col-mi-11{width: 91.666666%;}
+        .col-mi-12{width: 100%;}
+        }
+        @media screen and (min-width:1024px) {
+        .col-lg-1{width: 8.333333%;}
+        .col-lg-2{width: 16.666666%;}
+        .col-lg-3{width: 25%;}
+        .col-lg-4{width: 33.333333%;}
+        .col-lg-5{width: 41.666666%;}
+        .col-lg-6{width: 50%;}
+        .col-lg-7{width: 58.333333%;}
+        .col-lg-8{width: 66.666666%;}
+        .col-lg-9{width: 75%;}
+        .col-lg-10{width: 83.333333%;}
+        .col-lg-11{width: 91.666666%;}
+        .col-lg-12{width: 100%;}
+        }
+        @media screen and (min-width:1200px) {
+        .col-xl-1{width: 8.333333%;}
+        .col-xl-2{width: 16.666666%;}
+        .col-xl-3{width: 25%;}
+        .col-xl-4{width: 33.333333%;}
+        .col-xl-5{width: 41.666666%;}
+        .col-xl-6{width: 50%;}
+        .col-xl-7{width: 58.333333%;}
+        .col-xl-8{width: 66.666666%;}
+        .col-xl-9{width: 75%;}
+        .col-xl-10{width: 83.333333%;}
+        .col-xl-11{width: 91.666666%;}
+        .col-xl-12{width: 100%;}
+        }
+
+
+</style>
+<body>
+    <div class="xruby">
+        <header class="header">
+            <div class="header-header">
+                <a class="header-title" href="">
+                    <img class="header-pic" src="5x.png" alt="">    
+                </a>
+                <a href="">
+                    五倍紅寶石 ・專業程式教育機構
+                </a>
+            </div>
+            <ul class="header-list">
+                <li>
+                    <a href="">
+                        ASTRO Camp
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        線上課程
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    短期課程
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        技術文章
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    五倍消息
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <div class="pic-area col-12 col-mi-12 col-lg-12 col-xl-12">
+            <img src="header.jpeg.webp" alt="">
+        </div>
+        <div class="area1">
+            <div class="area1-title">
+                <h2>
+                    不只停留在教你釣<span></span>魚，更引領你乘風破浪
+                </h2>
+                <p>
+                    我們不藏私的教學，讓所有人都能發揮超越五倍的價值。
+                </p>
+            </div>
+
+            <div class="area1-list">
+                <div class="area1-card">
+                    <img src="a.webp" alt="">
+                    <h3>
+                        鍛鍊實力，主導學習
+                    </h3>
+                    <p>
+                        搭配最新技術版本，掌握業界脈動，
+                    </p>
+                    <p>
+                        與需求緊密結合，鍛鍊程式實力。
+                    </p>
+                </div>
+                <div class="area1-card">
+                    <img src="b.webp" alt="">
+                    <h3>
+                        完整規劃，絕不漏接
+                    </h3>
+                    <p>
+                        線上補課、線下討論與社群活動，
+                    </p>
+                    <p>
+                        確保學員擁有充份且多元的學習資源和支持系統。
+                    </p>
+                </div>
+                <div class="area1-card">
+                    <img src="c.webp" alt="">
+                    <h3>
+                        挑戰困境，突破職涯
+                    </h3>
+                    <p>
+                        無論新手跨領域轉職，或在職工程師深度進修，
+                    </p>
+                    <p>
+                        讓五倍為你解構學習，突破困境。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <article class="area2">
+            <header>
+                <h2>講師陣容</h2>
+                <p>我們的講師長期專注於網站開發技術領域，透過研討會、社群演講及授課方式將技術知識分享給更多人知道，讓更多人了解各個技術的美好之處。</p>
+            </header>
+
+            <section class="teacher-list">
+                <div class="teacher">
+                    <div class="teacher-name">
+                        <div class="teacher-name-pic">
+                        <img src="amos.png.webp" alt="">
+                        </div>
+                        <div class="teacher-data">
+                            <p>HTML / CSS 講師
+                                <h3>李建杭 (Amos Lee)</h3>
+                            </p>
+                            <div class="teacher-social">
+                            <a href=""><img src="myself.jpg" alt=""></a>
+                            <a href=""><img src="facebook.png" alt=""></a>
+                            <a href=""><img src="youtube.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-p">
+                        <p>
+                            從視覺設計轉職前端的斜槓開發者，活躍於臺灣各大技術研討會，熟稔 <span>HTML & CSS、Bootstrap、RWD、CSS3</span> 等，為國內知名前端技術講師。
+                        </p>
+                        <p>
+                            2018 年成為 <a href="">Youtuber</a> ，致力於使用簡單易懂的方式讓新手能夠輕鬆學習前端開發技能。
+                        </p>
+                        <p>
+                            <a href="">iT 邦幫忙鐵人賽</a>連續<span>三屆冠軍</span>、連續<span>兩屆優選</span>，於 2020 出版「金魚都能懂的 CSS 選取器：<a href="">金魚都能懂了你還怕學不會嗎（iT邦幫忙鐵人賽系列書</a>）」一書，除了熱衷於牛排的熟成，目前日益精進於釣魚技能。
+                        </p>
+                    </div>
+                    <div class="teacher-class">
+                        <p>講師其他課程</p>
+                        <span></span>
+                    </div>
+                    <div class="teacher-link">
+                        <a class="teacher-btn" href="">
+                            網頁前端設計女性專班
+                        </a>
+                        <a class="teacher-btn" href="">
+                            HTML 網頁設計新手村
+                        </a>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="teacher-name">
+                        <div class="teacher-name-pic">
+                            <img src="eddie.jpg.webp" alt="">
+                        </div>
+                        <div class="teacher-data">
+                            <p>Ruby / Git 講師
+                                <h3>高見龍 (Eddie Kao)</h3>
+                            </p>
+                            <div class="teacher-social">
+                            <a href=""><img src="myself.jpg" alt=""></a>
+                            <a href=""><img src="facebook.png" alt=""></a>
+                            <a href=""><img src="youtube.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-p">
+                        <p>
+                            五倍紅寶石程式資訊教育股份有限公司負責人，在國內外各大型技術研討會擔任講者，參與過日本 RubyKaigi、日本 Ruby World Conference、臺灣微軟 Azure Developer Day 、RubyConf Taiwan、JSDC、WebConf 等。有二十年程式開發經驗和十多年的教學經驗，在臺灣推廣 Ruby 及 Git 多年，在各大專院校與企業開課，深受學員喜愛。
+                        </p>
+                        <p>
+                            雖非資訊本科系出身，但喜歡寫程式，而且希望可以寫一輩子程式的電腦阿宅。
+                        </p>
+                        <p>
+                            著有「<a href="">為你自己學 Git</a>」與「<a href="">為你自己學 Ruby on Rails</a>」暢銷技術書。
+                        </p>
+                    </div>
+                    <div class="teacher-class">
+                        <p>講師其他課程</p>
+                        <span></span>
+                    </div>
+                    <div class="teacher-link">
+                        <a class="teacher-btn" href="">
+                            Ruby on Rails 實戰課程
+                        </a>
+                        <a class="teacher-btn" href="">
+                            坐上 Git 時光機 - 版本控制
+                        </a>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="teacher-name">
+                        <div class="teacher-name-pic">
+                            <img src="Kuro.jpg.webp" alt="">
+                        </div>
+                        <div class="teacher-data">
+                            <p>Vue / JavaScript 講師
+                                <h3>許國政 (Kuro Hsu)</h3>
+                            </p>
+                            <div class="teacher-social">
+                            <a href=""><img src="myself.jpg" alt=""></a>
+                            <a href=""><img src="facebook.png" alt=""></a>
+                            <a href=""><img src="youtube.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-p">
+                        <p>
+                            業界資深前端開發者，為臺灣各大型技術研討會 JSDC、WebConf、MOPCON、COSCUP 的知名講者。
+                        </p>
+                        <p>
+                            於 2019 年出版「<a href="">0 陷阱！0 誤解！8 天重新認識 JavaScript！</a>」，攻佔各大技術書籍排行榜。
+                        </p>
+                        <p>
+                            同時身兼 Vue.js Taiwan 社群主辦人，主辦的活動場場秒殺一票難求，衍伸開發的週邊商品精緻實用，譽為被程式耽誤的週邊商品業者。
+                        </p>
+                    </div>
+                    <div class="teacher-class">
+                        <p>講師其他課程</p>
+                        <span></span>
+                    </div>
+                    <div class="teacher-link">
+                        <a class="teacher-btn" href="">
+                            Vue.js 與 Vuex 前端開發實戰
+                        </a>
+                        <a class="teacher-btn" href="">
+                            JavaScript / jQuery 前端開發入門實戰
+                        </a>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="teacher-name">
+                        <div class="teacher-name-pic">
+                            <img src="milkmidi.jpg.webp" alt="">
+                        </div>
+                        <div class="teacher-data">
+                            <p>React 講師
+                                <h3>廖珀均 (奶綠茶)</h3>
+                            </p>
+                            <div class="teacher-social">
+                            <a href=""><img src="myself.jpg" alt=""></a>
+                            <a href=""><img src="facebook.png" alt=""></a>
+                            <a href=""><img src="youtube.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-p">
+                        <p>
+                            資深前端開發者與程式開發講師，授課資歷十年以上。
+                        </p>
+                        <p>
+                            擅長 HTML、CSS、JavaScript、jQuery、Vue、React 開發應用與 Webpack 前端打包工具等，專修各種前端跨平台的疑難雜症。
+                        </p>
+                        <p>
+                            另一個身份為花鬍子樂團吉他手，育有二貓，喜愛小酌。
+                        </p>
+                    </div>
+                    <div class="teacher-class">
+                        <p>講師其他課程</p>
+                        <span></span>
+                    </div>
+                    <div class="teacher-link">
+                        <a class="teacher-btn" href="">
+                            React 全攻略 - 入門到進階
+                        </a>
+                        <a class="teacher-btn" href="">
+                            升級前端技術從 Tailwind CSS 開始
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <div class="area3">
+            <h2>
+                媒體報導
+            </h2>
+            <div class="report">
+                <div class="report-title">
+                    <a href="">
+                        想當高薪工程師 備妥三大關鍵能力求職更順暢
+                    </a>
+                    <p>
+                        中時新聞網・2021/01
+                    </p>
+                </div>
+                <div class="report-title">
+                    <a href="">
+                        營養系畢業、他撥接上網學程式，教人轉職工程師成功率達八成！
+                    </a>
+                    <p>
+                        EnglishOK・2020/03
+                    </p>
+                </div>
+                <div class="report-title">
+                    <a href="">
+                        教出八成轉職就業率、技術書籍狂賣15刷，程式教學大神竟是營養系出身！
+                    </a>
+                    <p>
+                        天下雜誌・2020/02
+                    </p>
+                </div>
+                <div class="report-title">
+                    <a href="">
+                        從調酒師到工程師！她靠中英文線上課程自學一年，成功轉職
+                    </a>
+                    <p>
+                        天下雜誌・2020/01
+                    </p>
+                </div>
+                <div class="report-title">
+                    <a href="">
+                        勇往「職」前！五倍紅寶石的 ASTRO Camp 舉辦第一屆 Demo Day
+                    </a>
+                    <p>
+                        INSIDE・2019/07
+                    </p>
+                </div>
+                <div class="report-title">
+                    <a href="">
+                        無痛轉職都是騙人的！「微痛」學習法教你跨領域轉職工程師
+                    </a>
+                    <p>
+                        INSIDE・2019/01
+                    </p>
+                </div>
+            </div>
+            <div class="report-more">
+                <a href="">更多報導</a>
+            </div>  
+        </div>
+
+        <section class="area4">
+            <div class="area4-header">
+                <div class="area4-title" >
+                <h2>短期實體課程</h2>
+                <span></span>
+                <h4>目標清晰的短期課程，針對單一技術所開設。適合在職進修的工程師、PM，或對網頁設計有興趣的你。</h4>
+                </div>
+
+                <div class="area4-subtitle">
+                    <h1>前端課程</h1>
+                    <h4>
+                        除了基礎的HTML、CSS、JavaScript，還包含React、Vue兩大前端框架。讓五倍講師帶你入門，打好網頁前端基礎!
+                    </h4>
+                    <a href=""><p>前往課程 ＞</p></a>
+                </div>
+            </div>
+
+
+            <div class="area4-lesson">
+                <div class="area4-lesson-header">
+                    <h1>近期課程</h1>
+                </div>
+                <div class="area4-list">
+                    <div class="area4-card">
+                        <a href="">
+                            <img src="git.webp" alt="">
+                            <p class="area4-month">
+                                2022 / 10月 線上直播班
+                            </p>
+                            <div class="area4-card-list">
+                                <p>講師：高見龍(Eddie Kuo)</p>
+                                <p>入門課程</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="area4-card">
+                        <a href="">
+                            <img src="react.jpg.webp" alt="">
+                            <p class="area4-month">
+                                2022 / 11月班
+                            </p>
+                            <div class="area4-card-list">
+                                <p>講師：廖珀均(奶綠茶)</p>
+                                <p class="process-class" >進階課程</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="area4-card">
+                        <a href="">
+                            <img src="vue.jpg.webp" alt="">
+                            <p class="area4-month">
+                                2022 - 12月班
+                            </p>
+                            <div class="area4-card-list">
+                                <p>講師：許國政(Kuro Hsu)</p>
+                                <p class="process-class" >進階課程</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area4-else">
+                看更多課程
+            </div>
+        </section>
+
+        <div class="area5">
+            <div class="area5-header">
+                <h2>
+                    掌握自己的學習路徑
+                </h2>
+                <h3>
+                    針對不同需求的學員，五倍規劃了多元且完整的學習路徑：從前端到後端，全方面的包套課程，與彈性的線上課程、假日班，任您自由選擇。
+                </h3>
+            </div>
+            <div class="area5-list">
+                <div class="area5-card">
+                    <a href="">
+                        <img src="left.png" alt="">
+                        <div class="area5-camp">
+                            <p class="area5-class">
+                            線上課程
+                            </p>
+                            <div class="area5-txt">
+                                <p class="area5-p">
+                                    不限時間、地點，自己掌握學習進度。課程內容包含前後端課程，附加完課即提供免費履歷健檢務。適    合在職、喜歡自己掌握進度的人。
+                                </p>
+                                <p class="forward-class" >
+                                    前往課程 ＞
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                    
+                <div class="area5-card">
+                    <a href="">
+                        <img src="right.png" alt="">
+                        <div class="area5-camp">
+                            <p class="area5-class">
+                                三個月實戰轉職全職工程師
+                            </p>
+                            <div class="area5-txt">
+                                <p class="area5-p">
+                                    除了提供前端到後端課程外，課程期間還包含履歷健檢、模擬面試、專題製作、企業交流等服務。適有    時間決心轉職工程師的素人。
+                                </p>
+                                <p class="forward-class" >
+                                    前往課程 ＞
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="area6">
+            <div class="area6-header">
+                <h2>在五倍，我們一起超越五倍</h2>
+            </div>
+
+            <div class="area6-body">
+                <div class="area6-card-aside">
+                    <p class="area6-txt">
+                        五倍推出的全端課程，是網頁初學者入門學習最好的地方。除了老師教學經驗豐富，助教親切指導解決疑惑外，還有有趣的發卡獎勵機制，鼓勵同學努力學習，值得五星推薦。
+                    </p>
+                    <div class="area6-card-name">
+                        <img src="profile.jpeg" alt="">
+                        <p>Kevin Cheng</p>
+                    </div>
+                </div>
+                <div class="area6-card">
+                    <p class="area6-txt">
+                        五倍課程非常的扎實，而除了課程以外，有強大的助教群，有任何疑問的時候，助教都會協助我們去解決問題，雖然中間碰到許多挫折，但要相信自己，也相信五倍，只要不放棄，五倍會陪著我們走過這條艱難的路程。
+                    </p>
+                    <div class="area6-card-name">
+                        <img src="profile.jpeg" alt="">
+                        <p>陳哲昱</p>
+                    </div>
+                </div>
+                <div class="area6-card">
+                    <p class="area6-txt">
+                        師資很強大，能接受學員意見彈性變化課程內容，每次上課練習專案都不一樣，充足且強大的助教群，能問好、問滿、問到飽。
+                    </p>
+                    <div class="area6-card-name">
+                        <img src="profile.jpeg" alt="">
+                        <p>陳振庭</p>
+                    </div>
+                </div>
+                <div class="area6-card">
+                    <p class="area6-txt">
+                        在五倍的三個月，充實的打好以前沒打好的基礎，如果要我再選一次，我還是會來五倍學習新知！內有學弟學妹 😍 給推
+                    </p>
+                    <div class="area6-card-name">
+                        <img src="profile.jpeg" alt="">
+                        <p>邵子晉</p>
+                    </div>
+                </div>
+                <div class="area6-card-bside">
+                    <p class="area6-txt">
+                        中間有針對 Git 觀念的簡單考題很有趣，增加互動又能動腦，釐清觀念理解程度，我覺得穿插問答題對課程很有幫助！
+                    </p>
+                    <div class="area6-card-name">
+                        <img src="profile.jpeg" alt="">
+                        <p>學員</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="area7">
+            <div class="area7-header">
+                <h2>
+                    精選文章
+                </h2>
+            </div>
+            <div class="area7-body">
+                <div class="area7-card">
+                    <img src="choice1.webp" alt="">
+                    <h3>
+                        以企劃身份踏入網頁前端的第一步
+                    </h3>
+                    <p>
+                        By Michelle Tien・6月 15 2022・技術文章
+                    </p>
+                </div>
+                <div class="area7-card">
+                    <img class="area7-img2" src="choice2.webp" alt="">
+                    <h3>
+                        2022 最適合你的前端框架： React 發展趨勢和前景！
+                    </h3>
+                    <p>
+                        By 五倍紅寶石課程顧問團隊・5月 28 2022・技術文章
+                    </p>
+                </div>
+                <div class="area7-card">
+                    <img src="choice3.webp" alt="">
+                    <h3>
+                        HTML、CSS 和 SEO 間的緊密關係
+                    </h3>
+                    <p>
+                        By 五倍紅寶石課程顧問團隊・5月 27 2022・技術文章
+                    </p>
+                </div>
+            </div>
+            <div class="area7-footer">
+                <p>更多文章</p>
+            </div>
+        </div>
+
+        <div class="area8">
+            <div class="footer">
+                <div class="footer-header">
+                    <div class="footer-header-title">
+                        <img src="footer.svg" alt="">
+                    </div>
+                    <div class="footer-header-body">
+                        <h2>
+                            <a href="">電話 | (02) 2331-5247</a>
+                        </h2>
+                        <h2>
+                            <a href="">信箱 | course@5xcampus.com</a>
+                        </h2>
+                        <h2>
+                            <a href="">地址 | 10046 台北市中正區衡陽路 7 號 5 樓</a>
+                        </h2>
+                    </div>  
+                </div>
+                <div class="footer-body">
+                    <ul class="footer-card">
+                        <h2>
+                            專業課程
+                        </h2>
+                        <li>
+                            <h3><a href="">ASTRO Camp</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">線上課程</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">實體課程</a></h3>
+                        </li>
+                    </ul>
+                    <ul class="footer-card">
+                        <h2>
+                            關於我們
+                        </h2>
+                        <li>
+                            <h3><a href="">關於五倍紅寶石</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">聯絡我們</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">媒體報導</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">加入我們</a></h3>
+                        </li>
+                    </ul>
+                    <ul class="footer-card">
+                        <h2>
+                            部落格
+                        </h2>
+                        <li>
+                            <h3><a href="">技術文章</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">五倍消息</a></h3>
+                        </li>
+                    </ul>
+                    <ul class="footer-card">
+                        <h2>
+                            幫助與政策
+                        </h2>
+                        <li>
+                            <h3><a href="">常見問題</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">隱私權政策</a></h3>
+                        </li>
+                        <li>
+                            <h3><a href="">服務條款</a></h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="area8-link">
+                <a href="">
+                    <img src="ffb.png" alt="">
+                </a>
+                <a href="">
+                    <img src="fyt.png" alt="">
+                </a>
+                <a href="">
+                    <img src="fcat.png" alt="">
+                </a>
+                <a href="">
+                    <img src="fm.png" alt="">
+                </a>
+                <a href="">
+                    <img src="fline.png" alt="">
+                </a>
+                <a href="">
+                    <img src="ftw.png" alt="">
+                </a>
+            </div>
+            <div class="footer-footer">
+                <p>
+                    © 2014 - 2022 五倍紅寶石程式資訊教育股份有限公司 (5xRuby Training Group CO., LTD) | 台北市短期補習班立案 第 7594 號
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
